@@ -1,0 +1,47 @@
+.login-container {
+    display: flex;
+    height: 100vh;
+  
+    .image-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      
+      img {
+        max-width: 100%;
+        display: block;
+      }
+    }
+  
+    .form-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  
+      .logo {
+        margin-bottom: 2rem;
+      }
+  
+      mat-form-field {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 1rem;
+  
+        &.mat-focused {
+          .mat-form-field-ripple {
+            background-color: orange; 
+          }
+        }
+      }
+  
+      button {
+        background-color: orange;
+        color: white;
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  }
