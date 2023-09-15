@@ -1,23 +1,24 @@
-<div class="login-container">
-    <div class="image-section">
-      <img src="path/to/image1.jpg">
-      <img src="path/to/image2.jpg">
-      <img src="path/to/image3.jpg">
-    </div>
-  
-    <div class="form-section">
-      <img src="path/to/logo.jpg" class="logo">
+<div class="container">
+  <div class="images">
+      <img src="../../../../../assets/leffa-moveis.png" alt="Image 1" class="img-home">
+      <img src="../../../../../assets/leffa-fachada2.jpeg" alt="Image 3" class="img-home">
+      <img src="../../../../../assets/leffa-fachada.jpeg" alt="Image 2" class="img-home">
       
-      <mat-form-field appearance="fill">
-        <mat-label>Login</mat-label>
-        <input matInput type="text">
-      </mat-form-field>
-  
-      <mat-form-field appearance="fill">
-        <mat-label>Senha</mat-label>
-        <input matInput type="password">
-      </mat-form-field>
-  
-      <button mat-raised-button color="accent">ENTRAR</button>
-    </div>
   </div>
+
+  <div class="login-section">
+        <img src="../../../../../assets/logo.png" alt="Logo" class="logo">
+        <div class="login">
+          <span id="login">Login</span>
+          <mat-form-field appearance="outline">
+             
+              <input matInput placeholder="Usuário" [(ngModel)]="username">
+          </mat-form-field>
+          <span id="senha">Senha</span>
+          <mat-form-field appearance="outline">
+              <input matInput type="password" placeholder="Senha" [(ngModel)]="password">
+          </mat-form-field>
+          <button mat-raised-button [disabled]="!username || !password" id="custom-btn" (click)="onLogin()">ENTRAR</button>
+        </div>  
+  </div>
+</div>

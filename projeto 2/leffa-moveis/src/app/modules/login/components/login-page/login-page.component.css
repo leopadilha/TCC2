@@ -1,47 +1,68 @@
-.login-container {
-    display: flex;
-    height: 100vh;
-  
-    .image-section {
-      flex: 1;
+.container {
+  display: flex;
+  .images {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      
-      img {
-        max-width: 100%;
-        display: block;
-      }
-    }
-  
-    .form-section {
-      flex: 1;
+      height: 100vh;
+      margin-right: 20px; 
+  }
+
+  .login-section {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
-  
+      margin: auto;
+
       .logo {
-        margin-bottom: 2rem;
+          align-self: center; 
+          width: 379px;
+          height: 160px;
+          margin-bottom: 100px;
       }
-  
+
       mat-form-field {
-        width: 100%;
-        max-width: 300px;
-        margin-bottom: 1rem;
-  
-        &.mat-focused {
-          .mat-form-field-ripple {
-            background-color: orange; 
-          }
-        }
+          width: 100%;
+          margin-top:20px;
       }
-  
+
       button {
-        background-color: orange;
-        color: white;
-        width: 100%;
-        max-width: 300px;
+          margin-top: 20px;
+          align-self: center;
       }
-    }
   }
+}
+
+#custom-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-top:30px;
+  background-color: gray;
+  color: white;
+}
+ .login{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+ }
+
+ .img-home{
+    width:55vw;
+    height:33.33vh;
+ }
+
+ #senha, #login{
+    margin-bottom: 15px;
+ }
+
+ .mat-form-field.mat-focused .mat-form-field-outline {
+    color: orange;
+}
+
+#custom-btn:not([disabled]) {
+    background-color: orange;
+}
+

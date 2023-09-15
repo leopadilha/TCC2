@@ -1,0 +1,14 @@
+.table-container {
+    padding: 20px;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filters input {
+    margin-left: 10px;
+}

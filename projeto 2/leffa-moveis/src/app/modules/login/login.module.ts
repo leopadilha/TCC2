@@ -4,6 +4,7 @@ import { LoginRoutingModule } from './login-routing.module';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms'
 
 
 @NgModule({
@@ -12,8 +13,8 @@ import { MatButtonModule } from '@angular/material/button';
     CommonModule,
     MatInputModule,
     MatButtonModule,
-    LoginRoutingModule
-    // ... outros módulos necessários
+    LoginRoutingModule,
+    FormsModule
   ]
 })
 export class LoginModule { }
