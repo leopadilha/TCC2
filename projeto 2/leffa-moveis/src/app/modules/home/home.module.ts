@@ -6,6 +6,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { TableComponent } from './components/table/table.component' 
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { RequestComponent } from './components/request/request.component';
+import { NewProjectComponent } from './components/new-project/new-project.component';
 
 
 @NgModule({
@@ -13,13 +17,17 @@ import { MatCardModule } from '@angular/material/card';
     HomePageComponent,
     HeaderComponent,
     TableComponent,
+    RequestComponent,
+    NewProjectComponent,
 
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule,
+    MatInputModule
   ]
 })
 export class HomeModule { }

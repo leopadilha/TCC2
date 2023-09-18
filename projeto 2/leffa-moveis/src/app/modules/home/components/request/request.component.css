@@ -1,0 +1,56 @@
+.custom-orange-button {
+    background-color: #FFA500; 
+    color: #fff;
+    width: 200px; 
+    border: none ;
+    transition: background-color 0.3s, transform 0.3s;
+    width:300px;
+    padding:7px;
+    border-radius: 8px;
+    cursor:pointer;
+}
+
+.custom-orange-button:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2)
+}
+
+.new-project-button{
+    width:100%;
+    display:flex;
+    justify-content: center;
+}
+
+.table-container{
+    max-width: 70%; 
+    margin: 40px auto; 
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
+    border-radius:8px;
+  
+}
+
+.title{
+    color:  rgb(245, 121, 5)
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inputs-header{
+    width:40%;
+    display:flex;
+    justify-content: space-between;
+}
+
+.mat-form-field-outline {
+    display: none;
+}
+
+.mat-form-field-underline {
+    display: none;
+}

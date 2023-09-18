@@ -1,0 +1,20 @@
+<div class="new-project-button">
+        <button mat-raised-button class="custom-orange-button" (click)="requestNewProject()">NOVO PROJETO   +</button>
+    </div>
+    <div class="table-container">
+        <div class="table-header">
+            <span class="title">Pedidos</span>
+            <div class="inputs-header">
+                <mat-form-field appearance="outline" class="search-input custom-input" >
+                    <input matInput placeholder="Pesquisar">
+                    <mat-icon matSuffix>search</mat-icon>
+                </mat-form-field>
+            
+                <mat-form-field appearance="outline" class="filter-input custom-input">
+                    <input matInput placeholder="Filtrar">
+                    <mat-icon matSuffix>filter_list</mat-icon>
+                </mat-form-field>
+            </div>
+        </div> 
+        <app-table  [dataSource]="request"></app-table>
+    </div>

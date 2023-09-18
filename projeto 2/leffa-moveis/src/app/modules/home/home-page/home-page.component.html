@@ -1,3 +1,8 @@
 <app-header></app-header>
-<button mat-raised-button class="custom-orange-button">Novo Projeto    +</button>
-<app-table></app-table>
+<main>
+    <div *ngIf="loading">Carregando...</div>
+    <app-request *ngIf="!showNewProject" (newProjectRequested)="openNewProjectForm()"></app-request>
+    <app-new-project *ngIf="showNewProject"></app-new-project>
+</main>
+
+

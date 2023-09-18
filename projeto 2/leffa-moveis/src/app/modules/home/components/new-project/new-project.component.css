@@ -1,0 +1,44 @@
+.form-container {
+    width: 100%;
+    max-width: 50%; 
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #EEECEC;
+    border-radius: 8px;
+    margin-top:20px;
+}
+
+.half-width {
+    width: 49%; 
+}
+
+.full-width {
+    width: 100%;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.label-container {
+    width: 49%; /* Ajuste para considerar o gap */
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field {
+    width: 100%;
+    margin-top: 5px;
+}
+
+input{
+    background-color: white;
+}

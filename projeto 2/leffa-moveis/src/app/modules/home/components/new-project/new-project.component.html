@@ -1,0 +1,65 @@
+<div class="form-container">
+    <h2 style="color: orange;">Adicionando um pedido</h2>
+    
+    <form class="custom-form">
+        <div class="form-row">
+            <div class="label-container">
+                <p>Cliente</p>
+                <mat-form-field appearance="outline" class="input-field">
+                    <input matInput id="input">
+                </mat-form-field>
+            </div>
+            
+            <div class="label-container">
+                <p>Data Pedido</p>
+                <mat-form-field appearance="outline" class="input-field">
+                    <input matInput type="date">
+                </mat-form-field>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="label-container">
+                <p>Ambiente</p>
+                <mat-form-field appearance="outline" class="input-field">
+                    <input matInput>
+                </mat-form-field>
+            </div>
+            
+            <div class="label-container">
+                <p>Data Entrega</p>
+                <mat-form-field appearance="outline" class="input-field">
+                    <input matInput type="date">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="label-container">
+                <p>Status</p>
+                <mat-form-field appearance="outline" class="input-field">
+                    <input matInput>
+                </mat-form-field>
+            </div>
+            
+            <div class="label-container">
+                <p>Projetista</p>
+                <mat-form-field appearance="outline" class="input-field">
+                    <input matInput type="date">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Observação</mat-label>
+                <textarea matInput></textarea>
+            </mat-form-field>
+        </div>
+        
+        <div class="button-container">
+            <button mat-raised-button class="custom-orange-button">Cadastrar</button>
+        </div>
+        
+    </form>
+</div>
