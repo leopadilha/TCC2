@@ -1,7 +1,14 @@
 <app-header></app-header>
 <main>
-    <div *ngIf="loading">Carregando...</div>
-    <app-request *ngIf="!showNewProject" (newProjectRequested)="openNewProjectForm()"></app-request>
+    <ng-container *ngIf="loading && !error">
+        <div class="spinner-container">
+            <mat-spinner></mat-spinner>
+        </div>
+    </ng-container>
+    <app-request *ngIf="!showNewProject && !loading && !error" 
+    [requests]="requests" 
+    (newProjectRequested)="openNewProjectForm()">
+</app-request>
     <app-new-project *ngIf="showNewProject"></app-new-project>
 </main>
 

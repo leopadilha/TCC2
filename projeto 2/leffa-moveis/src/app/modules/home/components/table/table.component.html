@@ -1,18 +1,18 @@
 
-    <table mat-table [dataSource]="dataSource">
+    <table mat-table [dataSource]="requests">
         <ng-container matColumnDef="client">
             <th mat-header-cell *matHeaderCellDef>Cliente</th>
             <td mat-cell *matCellDef="let row">{{row.client}}</td>
         </ng-container>
 
-        <ng-container matColumnDef="ambiente">
+        <ng-container matColumnDef="environment">
             <th mat-header-cell *matHeaderCellDef>Ambiente</th>
-            <td mat-cell *matCellDef="let row">{{row.ambiente}}</td>
+            <td mat-cell *matCellDef="let row">{{row.environment}}</td>
         </ng-container>
 
-        <ng-container matColumnDef="dataPed">
+        <ng-container matColumnDef="datePed">
             <th mat-header-cell *matHeaderCellDef>Data Pedido</th>
-            <td mat-cell *matCellDef="let row">{{ getFormattedDate(row.dataPed) }}</td>
+            <td mat-cell *matCellDef="let row">{{ getFormattedDate(row.datePed) }}</td>
         </ng-container>
 
         <ng-container matColumnDef="dateDelivery">

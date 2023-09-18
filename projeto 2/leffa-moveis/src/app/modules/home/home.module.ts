@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { RequestComponent } from './components/request/request.component';
 import { NewProjectComponent } from './components/new-project/new-project.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { NewProjectComponent } from './components/new-project/new-project.compon
     MatTableModule,
     MatCardModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatProgressSpinnerModule
   ]
 })
 export class HomeModule { }

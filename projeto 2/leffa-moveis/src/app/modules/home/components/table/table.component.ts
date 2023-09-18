@@ -6,9 +6,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent {
-  displayedColumns: string[] = ['client', 'ambiente', 'dataPed', 'dateDelivery', 'designer', 'status'];
+  displayedColumns: string[] = ['client', 'environment', 'datePed', 'dateDelivery', 'designer', 'status'];
 
-  @Input() dataSource: any[] = [];
+  @Input() requests: any[] = [];
 
   getFormattedDate(dateString: string): string {
     const date = new Date(dateString);

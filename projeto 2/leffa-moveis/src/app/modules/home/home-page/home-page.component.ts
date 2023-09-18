@@ -1,21 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from 'src/app/service/request-service.service';
 
-
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
-export class HomePageComponent{
+export class HomePageComponent implements OnInit{
 
-  loading: boolean = false;
+  requests: any;
+  loading: boolean = true;
+  error: any;
 
   constructor(private requestService: RequestService) {}
 
   ngOnInit(): void {
-    this.requestService.loading$.subscribe(loading => this.loading = loading);
+    this.requestService.getRequest().subscribe(
+      data => {
+        this.requests = data;
+        this.loading = false;
+      },
+      error => {
+        this.error = error;
+        this.loading = false;
+      }
+    );
   }
+
   showNewProject = false;
 
   openNewProjectForm() {
