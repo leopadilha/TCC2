@@ -18,7 +18,15 @@
           <mat-form-field appearance="outline">
               <input matInput type="password" placeholder="Senha" [(ngModel)]="password">
           </mat-form-field>
-          <button mat-raised-button [disabled]="!username || !password" id="custom-btn" (click)="onLogin()">ENTRAR</button>
+          <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+          <button mat-raised-button [disabled]="isLoading || !username || !password" id="custom-btn" (click)="onLogin()">
+            <ng-container *ngIf="!isLoading; else spinner">
+                ENTRAR
+            </ng-container>
+            <ng-template #spinner>
+                <mat-spinner diameter="20" color="primary"></mat-spinner>
+            </ng-template>
+        </button>
         </div>  
   </div>
 </div>

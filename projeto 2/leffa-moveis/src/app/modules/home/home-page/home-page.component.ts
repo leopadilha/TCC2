@@ -36,4 +36,8 @@ export class HomePageComponent implements OnInit{
   closeForm() {
     this.showNewProject = false;
   }
+
+  handleBackButtonClick() {
+    this.showNewProject = false;
+  }
 }

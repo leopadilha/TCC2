@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from 'src/app/containers/user-service.service';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  user: any;
+
+  constructor(private userService: UserService) {
+    this.userService.user$.subscribe(data => {
+      this.user = data;
+    });
+}
 }

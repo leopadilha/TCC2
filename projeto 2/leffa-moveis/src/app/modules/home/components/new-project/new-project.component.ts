@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-new-project',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-project.component.css']
 })
 export class NewProjectComponent {
+  @Output() backButtonClicked = new EventEmitter<void>();
 
+  onBackButtonClicked() {
+    this.backButtonClicked.emit();
+  }
 }

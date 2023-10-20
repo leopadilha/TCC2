@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { UserService } from 'src/app/containers/user-service.service';
 
 @Component({
   selector: 'app-request',
@@ -14,5 +15,13 @@ export class RequestComponent {
   requestNewProject() {
     this.newProjectRequested.emit();
   }
+
+  user: any;
+
+  constructor(public userService: UserService) {
+    this.userService.user$.subscribe(data => {
+      this.user = data;
+    });
+}
   
 }

@@ -1,6 +1,10 @@
 <div class="new-project-button">
-        <button mat-raised-button class="custom-orange-button" (click)="requestNewProject()">NOVO PROJETO   +</button>
-    </div>
+        <button 
+        mat-raised-button class="custom-orange-button"
+        *ngIf="userService.canDisplayButton(user.cargo)" 
+        (click)="requestNewProject()">NOVO PROJETO   +
+    </button>
+</div>
     <div class="table-container">
         <div class="table-header">
             <span class="title">Pedidos</span>

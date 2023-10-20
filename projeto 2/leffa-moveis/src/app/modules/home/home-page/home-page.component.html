@@ -6,10 +6,10 @@
         </div>
     </ng-container>
     <app-request *ngIf="!showNewProject && !loading && !error" 
-    [requests]="requests" 
-    (newProjectRequested)="openNewProjectForm()">
-</app-request>
-    <app-new-project *ngIf="showNewProject"></app-new-project>
+        [requests]="requests" 
+        (newProjectRequested)="openNewProjectForm()">
+    </app-request>
+    <app-new-project *ngIf="showNewProject" (backButtonClicked)="handleBackButtonClick()"></app-new-project>
 </main>
 
 

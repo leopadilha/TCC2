@@ -1,7 +1,7 @@
-<div class="header-container">
+<div class="header-container" *ngIf="user">
     <img src="../../../../../../assets/logo.png" alt="Logo" class="logo">
     <div>
-         <span class="username">Kerollen </span> <br>
-         <span class="role"> Projetista </span>   
+        <span class="username">{{ user.usuario }}</span> <br>
+        <span class="role">{{ user.cargo }}</span>   
     </div>
 </div>
