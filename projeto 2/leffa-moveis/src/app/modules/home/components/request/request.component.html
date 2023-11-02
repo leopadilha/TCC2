@@ -1,7 +1,7 @@
 <div class="new-project-button">
         <button 
         mat-raised-button class="custom-orange-button"
-        *ngIf="userService.canDisplayButton(user.cargo)" 
+        *ngIf="userService.canDisplayButton()" 
         (click)="requestNewProject()">NOVO PROJETO   +
     </button>
 </div>
@@ -20,5 +20,5 @@
                 </mat-form-field>
             </div>
         </div> 
-        <app-table [requests]="requests"></app-table>
+        <app-table [requests]="requests" [totalItems]="totalItems"></app-table>
     </div>

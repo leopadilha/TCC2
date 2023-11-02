@@ -17,7 +17,8 @@ export class UserService {
     return this.userSubject.getValue();
   }
 
-  canDisplayButton(user: any): boolean {
-    return user.cargo != UserRole.Projetista;
+  canDisplayButton(): boolean {
+    console.log(this.getUser())
+    return this.getUser().cargo != UserRole.Projetista;
   }
 }

@@ -7,16 +7,16 @@ import { UserService } from 'src/app/containers/user-service.service';
   styleUrls: ['./request.component.css']
 })
 export class RequestComponent {
+  user: any;
 
   @Output() newProjectRequested = new EventEmitter<void>();
+  @Input() totalItems: number = 0
   @Input() requests: any;
   
 
   requestNewProject() {
     this.newProjectRequested.emit();
   }
-
-  user: any;
 
   constructor(public userService: UserService) {
     this.userService.user$.subscribe(data => {

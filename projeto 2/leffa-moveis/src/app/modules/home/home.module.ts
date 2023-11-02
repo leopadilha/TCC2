@@ -11,6 +11,8 @@ import { MatInputModule } from '@angular/material/input';
 import { RequestComponent } from './components/request/request.component';
 import { NewProjectComponent } from './components/new-project/new-project.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ErrorMessageComponent } from 'src/app/error-message/error-message.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -20,7 +22,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     TableComponent,
     RequestComponent,
     NewProjectComponent,
-
+    ErrorMessageComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatCardModule,
     MatIconModule,
     MatInputModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatPaginatorModule
   ]
 })
 export class HomeModule { }
