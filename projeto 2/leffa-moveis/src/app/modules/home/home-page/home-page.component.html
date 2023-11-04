@@ -8,7 +8,10 @@
     <app-request *ngIf="!showNewProject && !loading && !error" 
         [requests]="requests"
         [totalItems]="totalItems" 
-        (newProjectRequested)="openNewProjectForm()">
+        (newProjectRequested)="openNewProjectForm()"
+        (filterChanged)="onFiltersChanged($event)"
+        [currentPage]="currentPage"
+        (pageChange)="onPageChanged($event)">
     </app-request>
     <!-- <app-error-message 
     *ngIf="!loading && error" 

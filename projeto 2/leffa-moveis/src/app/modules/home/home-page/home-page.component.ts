@@ -31,7 +31,6 @@ export class HomePageComponent implements OnInit{
     this.loading = true;
     this.requestService.getRequest(page, this.designer, this.date).subscribe(
       data => {
-        console.log('data', data)
         this.requests = data.data;
         this.loading = false;
         this.totalItems = data.totalItems;
@@ -47,8 +46,9 @@ export class HomePageComponent implements OnInit{
     );
   }
 
-  onPageChange(event: PageEvent) {
-    this.getProjects(event.pageIndex + 1);
+  onPageChanged(event: PageEvent) {
+    this.currentPage = event.pageIndex + 1;
+    this.getProjects(this.currentPage);
   }
 
   openNewProjectForm() {
@@ -61,5 +61,11 @@ export class HomePageComponent implements OnInit{
 
   handleBackButtonClick() {
     this.showNewProject = false;
+  }
+
+  onFiltersChanged(filters: {designer: string, date: string}) {
+    this.designer = filters.designer;
+    this.date = filters.date;
+    this.getProjects(this.currentPage);
   }
 }

@@ -13,6 +13,9 @@ import { NewProjectComponent } from './components/new-project/new-project.compon
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ErrorMessageComponent } from 'src/app/error-message/error-message.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { FormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -32,7 +35,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatIconModule,
     MatInputModule,
     MatProgressSpinnerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    FormsModule,
+    MatSelectModule,
+    MatTooltipModule
   ]
 })
 export class HomeModule { }

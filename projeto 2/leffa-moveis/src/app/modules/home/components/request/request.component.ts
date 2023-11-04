@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { UserService } from 'src/app/containers/user-service.service';
 
 @Component({
@@ -12,16 +13,31 @@ export class RequestComponent {
   @Output() newProjectRequested = new EventEmitter<void>();
   @Input() totalItems: number = 0
   @Input() requests: any;
-  
+  @Input() currentPage: number = 1
 
-  requestNewProject() {
-    this.newProjectRequested.emit();
-  }
+  designerFilter: string = '';
+  dateFilter: string = '';
+
+  @Output() filterChanged = new EventEmitter<{designer: string, date: string}>();
 
   constructor(public userService: UserService) {
     this.userService.user$.subscribe(data => {
       this.user = data;
     });
-}
-  
+  } 
+
+  onFilter() {
+    this.filterChanged.emit({designer: this.designerFilter, date: this.dateFilter});
+  }
+
+  @Output() pageChange = new EventEmitter<PageEvent>();
+
+  onPageChanged(event: PageEvent) {
+    this.pageChange.emit(event);
+  }
+
+  requestNewProject() {
+    this.newProjectRequested.emit();
+  }
+
 }

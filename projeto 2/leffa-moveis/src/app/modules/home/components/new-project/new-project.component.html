@@ -23,7 +23,16 @@
             <div class="label-container">
                 <p>Ambiente</p>
                 <mat-form-field appearance="outline" class="input-field">
-                    <input matInput>
+                    <mat-select id="enviroment" [(value)]="selectedEnviroment">
+                        <mat-option value="Sala">Sala</mat-option>
+                        <mat-option value="Cozinha">Cozinha</mat-option>
+                        <mat-option value="Escritório">Escritório</mat-option>
+                        <mat-option value="Quarto">Quarto</mat-option>
+                        <mat-option value="Sala de jantar">Sala de jantar</mat-option>
+                        <mat-option value="Patio">Patio</mat-option>
+                        <mat-option value="Lavanderia">Lavanderia</mat-option>
+                        <mat-option value="Banheiro">Banheiro</mat-option>
+                    </mat-select>
                 </mat-form-field>
             </div>
             
@@ -39,14 +48,22 @@
             <div class="label-container">
                 <p>Status</p>
                 <mat-form-field appearance="outline" class="input-field">
-                    <input matInput>
+                    <mat-select id="status" [(value)]="selectedStatus">
+                        <mat-option value="novo">Novo</mat-option>
+                        <mat-option value="emAndamento">Em andamento</mat-option>
+                        <mat-option value="finalizado">Finalizado</mat-option>
+                    </mat-select>
                 </mat-form-field>
             </div>
             
             <div class="label-container">
                 <p>Projetista</p>
                 <mat-form-field appearance="outline" class="input-field">
-                    <input matInput>
+                    <mat-select id="projetista" [(value)]="selectedProjetista">
+                        <mat-option *ngFor="let projetista of projetistas" [value]="projetista">
+                            {{ projetista }}
+                        </mat-option>
+                    </mat-select>
                 </mat-form-field>
             </div>
         </div>

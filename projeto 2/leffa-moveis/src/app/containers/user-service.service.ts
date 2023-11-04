@@ -5,6 +5,7 @@ import { UserRole } from '../types/user.enum';
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
   private userSubject: BehaviorSubject<any> = new BehaviorSubject(null);
   user$: Observable<any> = this.userSubject.asObservable();
@@ -18,7 +19,6 @@ export class UserService {
   }
 
   canDisplayButton(): boolean {
-    console.log(this.getUser())
     return this.getUser().cargo != UserRole.Projetista;
   }
 }

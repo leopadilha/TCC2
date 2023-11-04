@@ -8,6 +8,14 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class NewProjectComponent {
   @Output() backButtonClicked = new EventEmitter<void>();
 
+  selectedStatus = 'Novo';
+  selectedProjetista = '';
+  selectedEnviroment = '' 
+
+  projetistas = ['', 'Kerolen', 'Leonardo']; 
+
+
+
   onBackButtonClicked() {
     this.backButtonClicked.emit();
   }
