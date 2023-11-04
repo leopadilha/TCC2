@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class RequestService {
   private baseUrl = environment.apiUrl;
+  private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(private http: HttpClient) {}
 
@@ -22,5 +23,9 @@ export class RequestService {
     }
 
     return this.http.get(`${this.baseUrl}/pedido/todos`, { params });
+  }
+
+  createRequest(payload: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/pedido`, payload, { headers: this.headers });
   }
 }
