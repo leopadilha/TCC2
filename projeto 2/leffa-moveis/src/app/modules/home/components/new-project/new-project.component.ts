@@ -9,6 +9,7 @@ import { ToastService } from 'src/app/service/toast-service.service';
 })
 export class NewProjectComponent {
   @Output() backButtonClicked = new EventEmitter<void>();
+  @Output() projectCreated = new EventEmitter<any>();
 
   selectedStatus = 'Novo';
   selectedProjetista = '';
@@ -35,7 +36,7 @@ export class NewProjectComponent {
   submitRequest() {
     this.requestService.createRequest(this.pedido).subscribe({
         next: (response) => {
-          this.toastService.showSuccess("Pedido cadastrado com sucesso!");
+          this.projectCreated.emit();
           //this.onBackButtonClicked()
         },
         error: (error) => {

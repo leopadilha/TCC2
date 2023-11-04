@@ -1,5 +1,9 @@
 
     <table mat-table [dataSource]="requests">
+        <ng-container matColumnDef="id">
+            <td mat-cell *matCellDef="let row">{{row.id}}</td>
+          </ng-container>
+          
         <ng-container matColumnDef="cliente">
             <th mat-header-cell *matHeaderCellDef>Cliente</th>
             <td mat-cell *matCellDef="let row">{{row.cliente}}</td>

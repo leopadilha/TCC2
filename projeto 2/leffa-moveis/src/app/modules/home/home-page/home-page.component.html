@@ -19,7 +19,7 @@
     (onRetry)="getProjects()"
     >
     </app-error-message> -->
-    <app-new-project *ngIf="showNewProject" (backButtonClicked)="handleBackButtonClick()"></app-new-project>
+    <app-new-project *ngIf="showNewProject" (backButtonClicked)="handleBackButtonClick()" (projectCreated)="onProjectCreated()"></app-new-project>
 
 </main>
 

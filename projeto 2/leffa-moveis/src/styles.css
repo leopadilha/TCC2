@@ -19,3 +19,12 @@ body {
     border-radius: 8px;
     cursor:pointer;
 }
+
+.success-snack {
+    background-color: #4CAF50; /* Green for success */
+    color: #fff;
+  }
+  .error-snack {
+    background-color: #F44336; /* Red for error */
+    color: #fff;
+  }

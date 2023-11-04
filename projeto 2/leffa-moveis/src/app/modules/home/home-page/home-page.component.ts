@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from 'src/app/service/request-service.service';
 import { PageEvent } from '@angular/material/paginator';
+import { ToastService } from 'src/app/service/toast-service.service';
 
 @Component({
   selector: 'app-home-page',
@@ -19,7 +20,7 @@ export class HomePageComponent implements OnInit{
   designer: string = '';
   date: string = '';
 
-  constructor(private requestService: RequestService) {}
+  constructor(private requestService: RequestService, private toastService: ToastService) {}
 
   ngOnInit(): void {
     this.getProjects(this.currentPage);
@@ -44,6 +45,12 @@ export class HomePageComponent implements OnInit{
         this.loading = false;
       }
     );
+  }
+
+  onProjectCreated() {
+    this.showNewProject = false;
+    this.toastService.showSuccess("Pedido cadastrado com sucesso!");
+    this.getProjects(1)
   }
 
   onPageChanged(event: PageEvent) {
