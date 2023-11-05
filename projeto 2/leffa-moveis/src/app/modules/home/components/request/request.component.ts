@@ -24,7 +24,13 @@ export class RequestComponent {
     this.userService.user$.subscribe(data => {
       this.user = data;
     });
-  } 
+  }
+  
+  @Output() refreshRequests = new EventEmitter<void>();
+
+  onRequestDeleted() {
+    this.refreshRequests.emit();
+  }
 
   onFilter() {
     this.filterChanged.emit({designer: this.designerFilter, date: this.dateFilter});

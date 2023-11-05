@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -27,5 +27,13 @@ export class RequestService {
 
   createRequest(payload: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/pedido`, payload, { headers: this.headers });
+  }
+
+  deleteRequest(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/pedido/${id}`).pipe(
+      catchError(error => {
+        throw 'Erro ao excluir o pedido. Serviço indisponível.';
+      })
+    );
   }
 }

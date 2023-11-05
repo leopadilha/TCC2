@@ -11,7 +11,8 @@
         (newProjectRequested)="openNewProjectForm()"
         (filterChanged)="onFiltersChanged($event)"
         [currentPage]="currentPage"
-        (pageChange)="onPageChanged($event)">
+        (pageChange)="onPageChanged($event)"
+        (refreshRequests)="getProjects(currentPage)">
     </app-request>
     <!-- <app-error-message 
     *ngIf="!loading && error" 
