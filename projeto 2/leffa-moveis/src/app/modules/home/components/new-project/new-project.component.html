@@ -1,5 +1,5 @@
 <div class="form-container">
-    <button mat-raised-button (click)="onBackButtonClicked()">Voltar</button>
+    <button mat-raised-button class="custom-orange-button" (click)="onBackButtonClicked()">Voltar</button>
     <h2 style="color: orange;">Adicionando um pedido</h2>
     
     <form #myForm="ngForm" (ngSubmit)="submitRequest()"  custom-form>
@@ -82,7 +82,7 @@
         </div>
         
         <div class="button-container">
-            <button mat-raised-button type="submit" custom-orange-button>Cadastrar</button>
+            <button mat-raised-button type="submit" class="custom-orange-button">Cadastrar</button>
         </div>
         
     </form>

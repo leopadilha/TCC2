@@ -1,0 +1,25 @@
+.dialog-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .attention-icon {
+    color: #ffa726; 
+    font-size: 48px; 
+    padding-bottom: 10px; 
+  }
+  
+  .dialog-content {
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .dialog-actions {
+    justify-content: flex-end;
+    display: flex;
+    padding: 8px;
+  }

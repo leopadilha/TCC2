@@ -24,7 +24,10 @@ export class TableComponent {
 
   getFormattedDate(dateString: string): string {
     const date = new Date(dateString);
-    return `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
+    const utcDate = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  
+    // Retorna a data formatada como DD/MM/YYYY
+    return `${utcDate.getUTCDate().toString().padStart(2, '0')}/${(utcDate.getUTCMonth() + 1).toString().padStart(2, '0')}/${utcDate.getUTCFullYear()}`;
   }
 
   deleteRequest(id: number) {
@@ -45,7 +48,8 @@ export class TableComponent {
 
   openDeleteConfirmation(row: any): void {
     const dialogRef = this.dialog.open(ConfirmModal, {
-      width: '250px',
+      width: '500px',
+      height: '300px',
       data: { cliente: row.cliente }
     });
 

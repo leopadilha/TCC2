@@ -9,16 +9,17 @@
         <div class="table-header">
             <span class="title">Pedidos</span>
             <div class="inputs-header">
-                <mat-form-field appearance="outline" class="example-form-field">
+                <mat-form-field appearance="outline" id="example-form-field">
                     <input matInput type="text" [(ngModel)]="designerFilter" placeholder="projetista">
                 </mat-form-field>
             
-                <mat-form-field appearance="outline" class="filter-input custom-input">
+                <mat-form-field appearance="outline" id="filter-input">
                     <input matInput type="date" [(ngModel)]="dateFilter" placeholder="Filtrar">
                     <mat-icon matSuffix>filter_list</mat-icon>
                 </mat-form-field>
+                <button mat-button color="primary" id="filter-button" (click)="onFilter()">Filtrar</button>
             </div>
-            <button mat-button color="primary" (click)="onFilter()">Filtrar</button>
+            
         </div> 
         <app-table 
             [requests]="requests" 

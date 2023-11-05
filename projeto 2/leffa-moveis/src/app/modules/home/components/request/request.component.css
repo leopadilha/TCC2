@@ -42,9 +42,9 @@
 }
 
 .inputs-header{
-    width:45%;
+    width:60%;
     display:flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .mat-form-field-outline {
@@ -54,3 +54,25 @@
 .mat-form-field-underline {
     display: none;
 }
+
+#example-form-field, #filter-input {
+    width: 150px; 
+    height: 40px; 
+    font-size: 0.8rem; 
+  }
+
+#filter-button {
+    background-color: #ff8c00; 
+    color: white;
+    border-radius: 8px;
+    border: none;
+    width:100px;
+    cursor: pointer;
+    padding: 7px;
+    transition: background-color 0.3s, box-shadow 0.3s; 
+  }
+  
+#filter-button:hover {
+    background-color: #ffA500;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  }

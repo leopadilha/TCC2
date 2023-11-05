@@ -14,7 +14,6 @@ body {
     width: 200px; 
     border: none ;
     transition: background-color 0.3s, transform 0.3s;
-    width:300px;
     padding:7px;
     border-radius: 8px;
     cursor:pointer;
@@ -27,4 +26,8 @@ body {
   .error-snack {
     background-color: #F44336; /* Red for error */
     color: #fff;
+  }
+
+  .mat-mdc-form-field-infix{
+    min-height: 0px;
   }
