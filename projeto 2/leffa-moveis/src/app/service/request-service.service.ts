@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class RequestService {
   private baseUrl = environment.apiUrl;
-  private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+ // private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(private http: HttpClient) {}
 
@@ -22,11 +22,11 @@ export class RequestService {
       params = params.append('data_pedido', date);
     }
 
-    return this.http.get(`${this.baseUrl}/pedido/todos`, { params });
+    return this.http.get(`${this.baseUrl}/pedido`, { params });
   }
 
-  createRequest(payload: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/pedido`, payload, { headers: this.headers });
+  createRequest(data: FormData): Observable<any> {
+    return this.http.post(`${this.baseUrl}/pedido`, data);
   }
 
   deleteRequest(id: number): Observable<any> {
@@ -35,5 +35,9 @@ export class RequestService {
         throw 'Erro ao excluir o pedido. Serviço indisponível.';
       })
     );
+  }
+
+  getPedidoPdf(id: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/pedido/${id}/pdf`, { responseType: 'blob' });
   }
 }

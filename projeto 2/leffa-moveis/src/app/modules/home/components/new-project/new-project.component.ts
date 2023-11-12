@@ -36,7 +36,23 @@ export class NewProjectComponent {
   }
 
   submitRequest() {
-    this.requestService.createRequest(this.pedido).subscribe({
+
+    const formData = new FormData();
+    formData.append('cliente', this.pedido.cliente);
+    formData.append('data_pedido', this.pedido.data_pedido);
+    formData.append('ambiente', this.pedido.ambiente);
+    formData.append('data_entrega', this.pedido.data_entrega);
+    formData.append('status', this.pedido.status);
+    formData.append('projetista', this.pedido.projetista);
+    formData.append('observacao', this.pedido.observacao);
+    formData.append('cliente_email', this.pedido.cliente_email);
+
+    // Adicionando o arquivo, se existir
+    if (this.pedido.fileToUpload) {
+      formData.append('file', this.pedido.fileToUpload, this.pedido.fileToUpload.name);
+    }
+
+    this.requestService.createRequest(formData).subscribe({
         next: (response) => {
           console.log(this.pedido)
           this.projectCreated.emit();

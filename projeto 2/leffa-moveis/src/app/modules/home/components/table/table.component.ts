@@ -11,7 +11,7 @@ import { RequestService } from 'src/app/service/request-service.service';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent {
-  displayedColumns: string[] = ['cliente', 'ambiente', 'data_entrega', 'data_pedido', 'projetista', 'status',  'actions'];
+  displayedColumns: string[] = ['cliente', 'ambiente', 'data_entrega', 'data_pedido', 'projetista', 'status', 'pdf', 'actions'];
 
   @Input() requests: any[] = [];
   @Input() totalItems: number = 0
