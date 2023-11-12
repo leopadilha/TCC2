@@ -24,7 +24,9 @@ export class NewProjectComponent {
     data_entrega: '',
     status: '',
     projetista: '',
-    observacao: ''
+    observacao: '',
+    cliente_email: '',
+    fileToUpload: null as File | null
   };
 
   constructor(private requestService: RequestService,  private toastService: ToastService) {}
@@ -36,6 +38,7 @@ export class NewProjectComponent {
   submitRequest() {
     this.requestService.createRequest(this.pedido).subscribe({
         next: (response) => {
+          console.log(this.pedido)
           this.projectCreated.emit();
           //this.onBackButtonClicked()
         },
@@ -44,4 +47,15 @@ export class NewProjectComponent {
         }
       });
     }
+  
+    handleFileInput(event: Event): void {
+      const element = event.currentTarget as HTMLInputElement;
+      let fileList: FileList | null = element.files;
+    
+      if (fileList) {
+        const file = fileList[0];
+        this.pedido.fileToUpload = file;
+      }
+    }
+   
 }

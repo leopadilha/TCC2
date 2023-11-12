@@ -2,8 +2,27 @@
     <button mat-raised-button class="custom-orange-button" (click)="onBackButtonClicked()">Voltar</button>
     <h2 style="color: orange;">Adicionando um pedido</h2>
     
-    <form #myForm="ngForm" (ngSubmit)="submitRequest()"  custom-form>
+    <form #myForm="ngForm" (ngSubmit)="submitRequest()"  enctype="multipart/form-data" custom-form>
         <div class="form-row">
+
+            <div class="label-container">
+                <p>E-mail</p>
+                <mat-form-field appearance="outline" class="input-field">
+                  <input matInput type="email" [(ngModel)]="pedido.cliente_email" name="email" required email>
+                  <mat-error *ngIf="myForm.controls['email']?.errors?.['required']">
+                    O campo é obrigatório.
+                  </mat-error>
+                  <mat-error *ngIf="myForm.controls['email']?.errors?.['email']">
+                    Insira um e-mail válido.
+                  </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="label-container">
+                <p>Upload de Arquivo</p>
+                <input type="file" (change)="handleFileInput($event)" accept=".pdf">
+              </div>
+
             <div class="label-container">
                 <p>Cliente</p>
                 <mat-form-field appearance="outline" class="input-field">
