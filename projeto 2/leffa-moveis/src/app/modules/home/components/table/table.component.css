@@ -12,3 +12,26 @@
 table{
     margin-top:30px;
 }
+
+.mat-icon-button {
+    background-color: transparent;
+    border: none;
+  }
+  
+  .mat-icon-button:hover {
+    color: black; /* Cor quando o mouse passa por cima */
+  }
+  
+  /* Estilizar nome do cliente */
+  .cliente-column {
+    color: #ea7406;
+  }
+
+ .icons {
+    color: #ea7406;
+    cursor: pointer
+ }
+
+ .icons:hover{
+    color: black;
+ }

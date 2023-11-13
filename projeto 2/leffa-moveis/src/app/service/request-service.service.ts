@@ -37,7 +37,7 @@ export class RequestService {
     );
   }
 
-  getPedidoPdf(id: string): Observable<any> {
+  downloadPdf(id: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/pedido/${id}/pdf`, { responseType: 'blob' });
   }
 }

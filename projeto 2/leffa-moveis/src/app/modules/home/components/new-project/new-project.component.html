@@ -1,6 +1,6 @@
 <div class="form-container">
     <button mat-raised-button class="custom-orange-button" (click)="onBackButtonClicked()">Voltar</button>
-    <h2 style="color: orange;">Adicionando um pedido</h2>
+    <h2 style="color: ea7406;">Adicionando um pedido</h2>
     
     <form #myForm="ngForm" (ngSubmit)="submitRequest()"  enctype="multipart/form-data" custom-form>
         <div class="form-row">
@@ -19,11 +19,6 @@
             </div>
 
             <div class="label-container">
-                <p>Upload de Arquivo</p>
-                <input type="file" (change)="handleFileInput($event)" accept=".pdf">
-              </div>
-
-            <div class="label-container">
                 <p>Cliente</p>
                 <mat-form-field appearance="outline" class="input-field">
                     <input matInput id="input" name="cliente" [(ngModel)]="pedido.cliente" required minlength="5">
@@ -35,16 +30,7 @@
                       </mat-error>
                 </mat-form-field>
             </div>
-            
-            <div class="label-container">
-                <p>Data Pedido</p>
-                <mat-form-field appearance="outline" class="input-field">
-                    <input matInput type="date" [(ngModel)]="pedido.data_pedido" name="dataPedido" required>
-                </mat-form-field>
-            </div>
-        </div>
-        
-        <div class="form-row">
+
             <div class="label-container">
                 <p>Ambiente</p>
                 <mat-form-field appearance="outline" class="input-field">
@@ -60,7 +46,15 @@
                     </mat-select>
                 </mat-form-field>
             </div>
-            
+        </div>    
+        
+        <div class="form-row">      
+            <div class="label-container">
+                <p>Data Pedido</p>
+                <mat-form-field appearance="outline" class="input-field">
+                    <input matInput type="date" [(ngModel)]="pedido.data_pedido" name="dataPedido" required>
+                </mat-form-field>
+            </div>
             <div class="label-container">
                 <p>Data Entrega</p>
                 <mat-form-field appearance="outline" class="input-field">
@@ -98,6 +92,13 @@
                 <mat-label>Observação</mat-label>
                 <textarea matInput [(ngModel)]="pedido.observacao" name="observacao" required></textarea>
             </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            <div class="label-container">
+                <p>Upload de Arquivo</p>
+                <input type="file" (change)="handleFileInput($event)" accept=".pdf">
+            </div>
         </div>
         
         <div class="button-container">

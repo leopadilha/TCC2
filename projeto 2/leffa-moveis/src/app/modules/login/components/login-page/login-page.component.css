@@ -59,10 +59,10 @@
  }
 
  .mat-form-field.mat-focused .mat-form-field-outline {
-    color: orange;
+    color: #ea7406;
 }
 
 #custom-btn:not([disabled]) {
-    background-color: orange;
+    background-color: #ea7406;
 }
 

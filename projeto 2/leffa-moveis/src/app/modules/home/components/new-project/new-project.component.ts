@@ -49,7 +49,7 @@ export class NewProjectComponent {
 
     // Adicionando o arquivo, se existir
     if (this.pedido.fileToUpload) {
-      formData.append('file', this.pedido.fileToUpload, this.pedido.fileToUpload.name);
+      formData.append('fileToUpload', this.pedido.fileToUpload, this.pedido.fileToUpload.name);
     }
 
     this.requestService.createRequest(formData).subscribe({

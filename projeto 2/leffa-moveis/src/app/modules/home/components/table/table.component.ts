@@ -46,6 +46,17 @@ export class TableComponent {
     );
   }
 
+  downloadPdf(id: string) {
+    this.requestService.downloadPdf(id).subscribe(data => {
+      const blob = new Blob([data], { type: 'application/pdf' });
+      const downloadURL = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = downloadURL;
+      link.download = "pedido.pdf";
+      link.click();
+    });
+  }
+
   openDeleteConfirmation(row: any): void {
     const dialogRef = this.dialog.open(ConfirmModal, {
       width: '500px',
