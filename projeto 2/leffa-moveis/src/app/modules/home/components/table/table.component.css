@@ -35,3 +35,35 @@ table{
  .icons:hover{
     color: black;
  }
+
+
+ .status-novo {
+  color: black;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.status-em-andamento {
+  color: #2F4F2F;
+  border: 1px solid #2F4F2F;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.status-finalizado {
+  color: #ea7406;
+  border: 1px solid #ea7406;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.plain-input {
+  border: none;
+  background-color: transparent;
+}
+
+.editing-row {
+  background-color: #f0f0f0; 
+  border: 1px solid #a89393f1
+}

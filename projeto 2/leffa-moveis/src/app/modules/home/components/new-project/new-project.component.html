@@ -1,11 +1,11 @@
 <div class="form-container">
     <button mat-raised-button class="custom-orange-button" (click)="onBackButtonClicked()">Voltar</button>
-    <h2 style="color: ea7406;">Adicionando um pedido</h2>
+    <h2 style="color: ea7406;">{{ isEditMode ? 'Edite seu pedido' : 'Adicionando um pedido' }}</h2>
     
     <form #myForm="ngForm" (ngSubmit)="submitRequest()"  enctype="multipart/form-data" custom-form>
         <div class="form-row">
 
-            <div class="label-container">
+            <div class="label-container" *ngIf="!isEditMode">
                 <p>E-mail</p>
                 <mat-form-field appearance="outline" class="input-field">
                   <input matInput type="email" [(ngModel)]="pedido.cliente_email" name="email" required email>
@@ -102,7 +102,7 @@
         </div>
         
         <div class="button-container">
-            <button mat-raised-button type="submit" class="custom-orange-button">Cadastrar</button>
+            <button mat-raised-button type="submit" class="custom-orange-button">{{ isEditMode ? 'Editar' : 'Cadastrar' }}</button>
         </div>
         
     </form>

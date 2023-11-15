@@ -28,6 +28,12 @@ export class RequestComponent {
   
   @Output() refreshRequests = new EventEmitter<void>();
 
+  @Output() editProjectRequested = new EventEmitter<any>();
+
+  onEditProject(data: any) {
+    this.editProjectRequested.emit(data);
+  }
+
   onRequestDeleted() {
     this.refreshRequests.emit();
   }

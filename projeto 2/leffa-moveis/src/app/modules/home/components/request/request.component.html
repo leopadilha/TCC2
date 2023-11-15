@@ -26,6 +26,7 @@
             [totalItems]="totalItems"
             [currentPage]="currentPage"
             (pageChange)="onPageChanged($event)"
-            (requestDeleted)="onRequestDeleted()">    
+            (requestDeleted)="onRequestDeleted()"
+            (editRequest)="onEditProject($event)">    
         </app-table>
     </div>

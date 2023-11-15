@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RequestService } from 'src/app/service/request-service.service';
 import { ToastService } from 'src/app/service/toast-service.service';
 
@@ -11,9 +11,11 @@ export class NewProjectComponent {
   @Output() backButtonClicked = new EventEmitter<void>();
   @Output() projectCreated = new EventEmitter<any>();
 
-  selectedStatus = 'Novo';
-  selectedProjetista = '';
-  selectedEnviroment = '' 
+  selectedStatus: string = 'Novo';
+  selectedProjetista: string = '';
+  selectedEnviroment: string = '' 
+  isEditMode: boolean = false;
+  @Input() projectData: any = null
 
   projetistas = ['', 'Kerolen', 'Leonardo']; 
 
@@ -32,11 +34,31 @@ export class NewProjectComponent {
   constructor(private requestService: RequestService,  private toastService: ToastService) {}
 
   onBackButtonClicked() {
+    this.projectData = null
+    this.isEditMode = false
     this.backButtonClicked.emit();
   }
 
-  submitRequest() {
+  ngOnInit() {
+    if (this.projectData) {
+      this.isEditMode = true;
+      this.fillFormWithData(this.projectData);
+    } else {
+      this.isEditMode = false;
+    }
+  }
 
+  fillFormWithData(data: any) {
+    this.pedido.cliente = data.cliente;
+    this.pedido.ambiente = data.ambiente
+    this.pedido.projetista = data.projetista
+    this.pedido.data_entrega = new Date(data.data_entrega).toISOString().split('T')[0]
+    this.pedido.data_pedido = new Date(data.data_pedido).toISOString().split('T')[0]
+    this.pedido.observacao = data.observacao
+    this.pedido.status = data.status
+  }
+
+  submitRequest() {
     const formData = new FormData();
     formData.append('cliente', this.pedido.cliente);
     formData.append('data_pedido', this.pedido.data_pedido);
@@ -47,21 +69,29 @@ export class NewProjectComponent {
     formData.append('observacao', this.pedido.observacao);
     formData.append('cliente_email', this.pedido.cliente_email);
 
-    // Adicionando o arquivo, se existir
     if (this.pedido.fileToUpload) {
       formData.append('fileToUpload', this.pedido.fileToUpload, this.pedido.fileToUpload.name);
     }
 
-    this.requestService.createRequest(formData).subscribe({
+    if (!this.isEditMode){
+      this.requestService.createRequest(formData).subscribe({
         next: (response) => {
-          console.log(this.pedido)
           this.projectCreated.emit();
-          //this.onBackButtonClicked()
         },
         error: (error) => {
           this.toastService.showError("Erro ao cadastrar projeto!");
         }
       });
+    }else{
+      this.requestService.editRequest(this.pedido, this.projectData?._id).subscribe({
+        next: (response) => {
+          this.projectCreated.emit();
+        },
+        error: (error) => {
+          this.toastService.showError("Erro ao editar pedido");
+        }
+      });
+    }  
     }
   
     handleFileInput(event: Event): void {

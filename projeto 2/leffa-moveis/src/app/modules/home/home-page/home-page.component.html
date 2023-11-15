@@ -12,7 +12,9 @@
         (filterChanged)="onFiltersChanged($event)"
         [currentPage]="currentPage"
         (pageChange)="onPageChanged($event)"
-        (refreshRequests)="getProjects(currentPage)">
+        (refreshRequests)="getProjects(currentPage)"
+        (editProjectRequested)="openProjectForEdit($event)"
+        >
     </app-request>
     <!-- <app-error-message 
     *ngIf="!loading && error" 
@@ -20,7 +22,7 @@
     (onRetry)="getProjects()"
     >
     </app-error-message> -->
-    <app-new-project *ngIf="showNewProject" (backButtonClicked)="handleBackButtonClick()" (projectCreated)="onProjectCreated()"></app-new-project>
+    <app-new-project *ngIf="showNewProject" (backButtonClicked)="handleBackButtonClick()" (projectCreated)="onProjectCreated()" [projectData]="selectedProjectData"></app-new-project>
 
 </main>
 

@@ -19,6 +19,8 @@ export class HomePageComponent implements OnInit{
   totalPages: number = 1;
   designer: string = '';
   date: string = '';
+  showNewProject = false;
+  selectedProjectData =  '';
 
   constructor(private requestService: RequestService, private toastService: ToastService) {}
 
@@ -26,7 +28,11 @@ export class HomePageComponent implements OnInit{
     this.getProjects(this.currentPage);
   }
 
-  showNewProject = false;
+  openProjectForEdit(projectData: any) {
+    this.selectedProjectData = projectData;
+    console.log(this.selectedProjectData)
+    this.showNewProject = true;
+  }
 
   getProjects(page: number){
     this.loading = true;
@@ -59,6 +65,7 @@ export class HomePageComponent implements OnInit{
   }
 
   openNewProjectForm() {
+    this.selectedProjectData = ''
     this.showNewProject = true;
   }
 

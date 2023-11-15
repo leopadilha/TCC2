@@ -29,6 +29,10 @@ export class RequestService {
     return this.http.post(`${this.baseUrl}/pedido`, data);
   }
 
+  editRequest(data: any, id: string): Observable<any> {
+    return this.http.put(`${this.baseUrl}/pedido/${id}`, data);
+  }
+
   deleteRequest(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/pedido/${id}`).pipe(
       catchError(error => {
