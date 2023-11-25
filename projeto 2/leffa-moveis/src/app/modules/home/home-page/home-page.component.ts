@@ -14,6 +14,7 @@ export class HomePageComponent implements OnInit{
   loading: boolean = true;
   error: any;
   currentPage: number = 1;
+  noContent: boolean = false
   totalItems: number = 0;
   pageSize: number = 10; 
   totalPages: number = 1;
@@ -34,16 +35,22 @@ export class HomePageComponent implements OnInit{
     this.showNewProject = true;
   }
 
-  getProjects(page: number){
+  getProjects(page: number) {
     this.loading = true;
     this.requestService.getRequest(page, this.designer, this.date).subscribe(
       data => {
-        this.requests = data.data;
-        this.loading = false;
-        this.totalItems = data.totalItems;
-        this.pageSize = data.pageSize;
-        this.totalPages = data.totalPages;
-        this.currentPage = data.currentPage;
+        if (!data) {
+          this.noContent = true;
+          this.requests = [];
+          this.totalItems = 0;
+        } else {
+          this.noContent = false;
+          this.requests = data.data;
+          this.totalItems = data.totalItems;
+          this.pageSize = data.pageSize;
+          this.totalPages = data.totalPages;
+          this.currentPage = data.currentPage;
+        }
         this.loading = false;
       },
       error => {
@@ -53,9 +60,13 @@ export class HomePageComponent implements OnInit{
     );
   }
 
-  onProjectCreated() {
+  onProjectCreated(event: any) {
     this.showNewProject = false;
-    this.toastService.showSuccess("Pedido cadastrado com sucesso!");
+    if (event.type === 'create') {
+      this.toastService.showSuccess("Pedido cadastrado com sucesso!");
+    } else if (event.type === 'edit') {
+      this.toastService.showSuccess("Pedido editado com sucesso!");
+    }
     this.getProjects(1)
   }
 

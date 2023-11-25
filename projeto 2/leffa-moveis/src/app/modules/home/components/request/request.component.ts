@@ -13,6 +13,7 @@ export class RequestComponent {
   @Output() newProjectRequested = new EventEmitter<void>();
   @Input() totalItems: number = 0
   @Input() requests: any;
+  @Input() noRequest: any;
   @Input() currentPage: number = 1
 
   designerFilter: string = '';

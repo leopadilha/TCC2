@@ -15,6 +15,7 @@ export class NewProjectComponent {
   selectedProjetista: string = '';
   selectedEnviroment: string = '' 
   isEditMode: boolean = false;
+  isLoading: boolean = false
   @Input() projectData: any = null
 
   projetistas = ['', 'Kerolen', 'Leonardo']; 
@@ -74,20 +75,26 @@ export class NewProjectComponent {
     }
 
     if (!this.isEditMode){
+      this.isLoading = true
       this.requestService.createRequest(formData).subscribe({
         next: (response) => {
-          this.projectCreated.emit();
+          this.isLoading = false
+          this.projectCreated.emit({ type: this.isEditMode ? 'edit' : 'create'});
         },
         error: (error) => {
+          this.isLoading = true
           this.toastService.showError("Erro ao cadastrar projeto!");
         }
       });
     }else{
+      this.isLoading = true
       this.requestService.editRequest(this.pedido, this.projectData?._id).subscribe({
         next: (response) => {
-          this.projectCreated.emit();
+          this.isLoading = false
+          this.projectCreated.emit({ type: this.isEditMode ? 'edit' : 'create'});
         },
         error: (error) => {
+          this.isLoading = true
           this.toastService.showError("Erro ao editar pedido");
         }
       });

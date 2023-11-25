@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError } from 'rxjs';
+import { Observable, catchError, map, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -22,7 +22,14 @@ export class RequestService {
       params = params.append('data_pedido', date);
     }
 
-    return this.http.get(`${this.baseUrl}/pedido`, { params });
+    return this.http.get(`${this.baseUrl}/pedido`, { params }).pipe(
+      map(response => {
+        return response
+      }),
+      catchError(error => {
+        return throwError(() => new Error(error));
+      })
+    );;
   }
 
   createRequest(data: FormData): Observable<any> {

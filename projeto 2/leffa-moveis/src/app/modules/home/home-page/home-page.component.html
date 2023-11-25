@@ -7,6 +7,7 @@
     </ng-container>
     <app-request *ngIf="!showNewProject && !loading && !error" 
         [requests]="requests"
+        [noRequest]="noContent"
         [totalItems]="totalItems" 
         (newProjectRequested)="openNewProjectForm()"
         (filterChanged)="onFiltersChanged($event)"
@@ -22,7 +23,7 @@
     (onRetry)="getProjects()"
     >
     </app-error-message> -->
-    <app-new-project *ngIf="showNewProject" (backButtonClicked)="handleBackButtonClick()" (projectCreated)="onProjectCreated()" [projectData]="selectedProjectData"></app-new-project>
+    <app-new-project *ngIf="showNewProject" (backButtonClicked)="handleBackButtonClick()" (projectCreated)="onProjectCreated($event)" [projectData]="selectedProjectData"></app-new-project>
 
 </main>
 

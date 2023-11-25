@@ -20,11 +20,11 @@ body {
 }
 
 .success-snack {
-    background-color: #4CAF50; /* Green for success */
+    background-color: #4CAF50; 
     color: #fff;
   }
   .error-snack {
-    background-color: #F44336; /* Red for error */
+    background-color: #F44336;
     color: #fff;
   }
 

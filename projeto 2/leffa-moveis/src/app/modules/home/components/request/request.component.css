@@ -76,3 +76,26 @@
     background-color: #ffA500;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
   }
+
+  .no-content-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .no-content-message {
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+
+  .custom-orange-button-no-request {
+    background-color: #ea7406; 
+    color: #fff;
+    width: 100px;
+    height: 100px;  
+    border: none ;
+    transition: background-color 0.3s, transform 0.3s;
+    padding:7px;
+    border-radius: 50%;
+    cursor:pointer;
+}
+  

@@ -69,7 +69,7 @@
                 <mat-form-field appearance="outline" class="input-field">
                     <mat-select id="status" [(ngModel)]="pedido.status" name="status" [(value)]="selectedStatus">
                         <mat-option value="Novo">Novo</mat-option>
-                        <mat-option value="Em Andamento">Em andamento</mat-option>
+                        <mat-option value="Em andamento">Em andamento</mat-option>
                         <mat-option value="Finalizado">Finalizado</mat-option>
                     </mat-select>
                 </mat-form-field>
@@ -102,8 +102,13 @@
         </div>
         
         <div class="button-container">
-            <button mat-raised-button type="submit" class="custom-orange-button">{{ isEditMode ? 'Editar' : 'Cadastrar' }}</button>
+            <button mat-raised-button type="submit" class="custom-orange-button" [disabled]="isLoading">
+                <mat-spinner *ngIf="isLoading" diameter="20" ></mat-spinner>
+                <span *ngIf="!isLoading">{{ isEditMode ? 'Editar' : 'Cadastrar' }}</span>
+            </button>
         </div>
+
+        
         
     </form>
 </div>
