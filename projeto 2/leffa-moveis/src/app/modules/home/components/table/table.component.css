@@ -58,12 +58,9 @@ table{
   border-radius: 4px;
 }
 
-.plain-input {
-  border: none;
-  background-color: transparent;
+#status {
+  width: 110px;
 }
-
-.editing-row {
-  background-color: #f0f0f0; 
-  border: 1px solid #a89393f1
+tr:hover{
+  background-color: rgba(240, 194, 143, 0.1);
 }

@@ -1,8 +1,10 @@
-<h1 mat-dialog-title>Confirmação</h1>
-<div mat-dialog-content>
-  Deseja deletar o pedido {{ data.id }}?
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onDismiss()">Não</button>
-  <button mat-button color="warn" (click)="onConfirm()">Sim</button>
+<div class="modal-container">
+  <h1>Confirmação</h1>
+  <div>
+    Tem certeza que deseja deletar o projeto?
+  </div>
+  <div class="mat-dialog-actions">
+    <button mat-button class="custom-orange-button" (click)="onConfirm()">Sim</button>
+    <button mat-button class="custom-orange-button" (click)="onDismiss()">Não</button>
+  </div>
 </div>

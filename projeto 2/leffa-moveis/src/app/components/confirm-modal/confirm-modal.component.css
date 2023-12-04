@@ -10,16 +10,23 @@
     font-size: 48px; 
     padding-bottom: 10px; 
   }
-  
-  .dialog-content {
-    min-height: 150px;
+
+  .mat-dialog-actions {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    width:100%;
+    justify-content: space-between;
+    margin-top:24px;
+    
   }
-  
-  .dialog-actions {
-    justify-content: flex-end;
-    display: flex;
-    padding: 8px;
+
+  .modal-container {
+    padding:24px;
+  }
+
+  .mat-mdc-dialog-container {
+    height: auto;
+  }
+
+  .mdc-dialog__surface {
+    height: auto;
   }

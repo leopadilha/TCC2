@@ -35,6 +35,7 @@ export class LoginPageComponent {
         tap((Response) => {
           this.isLoading = false;
           this.userService.setUser(Response.usuario)
+          localStorage.setItem('userData', JSON.stringify(Response.usuario));
           this.router.navigate(['/home']);
         }),
         catchError((error) => {

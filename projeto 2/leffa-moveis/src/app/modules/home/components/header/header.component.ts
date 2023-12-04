@@ -12,7 +12,7 @@ export class HeaderComponent {
 
   constructor(private userService: UserService) {
     this.userService.user$.subscribe(data => {
-      this.user = data;
+      this.user = data
     });
 }
 }
