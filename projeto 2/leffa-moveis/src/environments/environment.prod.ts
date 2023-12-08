@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiUrl: 'http://gerenciador-de-demanda.vercel.app'
+    apiUrl: 'https://gerenciador-de-demanda.vercel.app'
   };
