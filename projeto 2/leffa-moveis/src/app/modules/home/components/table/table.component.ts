@@ -30,6 +30,7 @@ export class TableComponent {
   @Output() editRequest = new EventEmitter<any>();
 
   editProject(rowData: any) {
+
     this.editRequest.emit(rowData);
   }
 

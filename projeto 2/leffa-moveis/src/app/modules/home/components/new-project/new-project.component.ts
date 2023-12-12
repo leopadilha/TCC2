@@ -82,7 +82,7 @@ export class NewProjectComponent {
           this.projectCreated.emit({ type: this.isEditMode ? 'edit' : 'create'});
         },
         error: (error) => {
-          this.isLoading = true
+          this.isLoading = false
           this.toastService.showError("Erro ao cadastrar projeto!");
         }
       });
@@ -94,7 +94,7 @@ export class NewProjectComponent {
           this.projectCreated.emit({ type: this.isEditMode ? 'edit' : 'create'});
         },
         error: (error) => {
-          this.isLoading = true
+          this.isLoading = false
           this.toastService.showError("Erro ao editar pedido");
         }
       });
