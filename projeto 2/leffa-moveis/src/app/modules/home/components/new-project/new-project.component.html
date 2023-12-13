@@ -21,7 +21,7 @@
             <div class="label-container">
                 <p>Cliente</p>
                 <mat-form-field appearance="outline" class="input-field">
-                    <input matInput id="input" name="cliente" [(ngModel)]="pedido.cliente" required minlength="5">
+                    <input matInput id="input" name="cliente" [(ngModel)]="pedido.cliente" required minlength="5" [disabled]="userLoggedIsProjetista">
                     <mat-error *ngIf="myForm.controls['cliente']?.errors?.['required']">
                         O campo é obrigatório.
                       </mat-error>
@@ -34,7 +34,7 @@
             <div class="label-container">
                 <p>Ambiente</p>
                 <mat-form-field appearance="outline" class="input-field">
-                    <mat-select id="enviroment" [(ngModel)]="pedido.ambiente" name="ambiente" [(value)]="selectedEnviroment">
+                    <mat-select id="enviroment" [(ngModel)]="pedido.ambiente" name="ambiente" [(value)]="selectedEnviroment" [disabled]="userLoggedIsProjetista">
                         <mat-option value="Sala">Sala</mat-option>
                         <mat-option value="Cozinha">Cozinha</mat-option>
                         <mat-option value="Escritório">Escritório</mat-option>
@@ -49,16 +49,16 @@
         </div>    
         
         <div class="form-row">      
-            <div class="label-container">
+            <div class="label-container" >
                 <p>Data Pedido</p>
                 <mat-form-field appearance="outline" class="input-field">
-                    <input matInput type="date" [(ngModel)]="pedido.data_pedido" name="dataPedido" required>
+                    <input matInput type="date" [(ngModel)]="pedido.data_pedido" name="dataPedido" required  [disabled]="userLoggedIsProjetista" required>
                 </mat-form-field>
             </div>
             <div class="label-container">
                 <p>Data Entrega</p>
                 <mat-form-field appearance="outline" class="input-field">
-                    <input matInput type="date" [(ngModel)]="pedido.data_entrega" name="dataEntrega" required>
+                    <input matInput type="date" [(ngModel)]="pedido.data_entrega" name="dataEntrega" required [disabled]="userLoggedIsProjetista" required>
                 </mat-form-field>
             </div>
         </div>
@@ -67,7 +67,7 @@
             <div class="label-container">
                 <p>Status</p>
                 <mat-form-field appearance="outline" class="input-field">
-                    <mat-select id="status" [(ngModel)]="pedido.status" name="status" [(value)]="selectedStatus">
+                    <mat-select id="status" [(ngModel)]="pedido.status" name="status" [(value)]="selectedStatus" [disabled]="!isEditMode">
                         <mat-option value="Novo">Novo</mat-option>
                         <mat-option value="Em andamento">Em andamento</mat-option>
                         <mat-option value="Finalizado">Finalizado</mat-option>
@@ -78,7 +78,7 @@
             <div class="label-container">
                 <p>Projetista</p>
                 <mat-form-field appearance="outline" class="input-field">
-                    <mat-select id="projetista" name="projetista"[(ngModel)]="pedido.projetista">
+                    <mat-select id="projetista" name="projetista"[(ngModel)]="pedido.projetista" [disabled]="userLoggedIsProjetista">
                         <mat-option *ngFor="let projetista of projetistas" [value]="projetista">
                             {{ projetista }}
                         </mat-option>
@@ -96,8 +96,8 @@
 
         <div class="form-row">
             <div class="label-container">
-                <p>Upload de Arquivo</p>
-                <input type="file" (change)="handleFileInput($event)" accept=".pdf">
+                <p>Orçamento</p>
+                <input type="file" (change)="handleFileInput($event)" accept=".pdf" [disabled]="userLoggedIsProjetista" required>
             </div>
         </div>
         
@@ -107,8 +107,5 @@
                 <span *ngIf="!isLoading">{{ isEditMode ? 'Editar' : 'Cadastrar' }}</span>
             </button>
         </div>
-
-        
-        
     </form>
 </div>

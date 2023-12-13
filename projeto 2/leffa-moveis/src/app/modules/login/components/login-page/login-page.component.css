@@ -27,7 +27,6 @@
 
       button {
           margin-top: 20px;
-          align-self: center;
       }
   }
 }
@@ -52,10 +51,6 @@
  .img-home{
     width:55vw;
     height:33.33vh;
- }
-
- #senha, #login{
-    margin-bottom: 15px;
  }
 
  .mat-form-field.mat-focused .mat-form-field-outline {

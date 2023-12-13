@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { UserService } from 'src/app/containers/user-service.service';
 import { RequestService } from 'src/app/service/request-service.service';
 import { ToastService } from 'src/app/service/toast-service.service';
 
@@ -16,24 +17,32 @@ export class NewProjectComponent {
   selectedEnviroment: string = '' 
   isEditMode: boolean = false;
   isLoading: boolean = false
+  userLoggedIsProjetista: boolean = false
   @Input() projectData: any = null
 
-  projetistas = ['', 'Kerolen', 'Leonardo']; 
+  projetistas = ['', 'Kerolen', 'Leonardo', 'Thainá']; 
 
   pedido = {
     cliente: '',
     data_pedido: '',
     ambiente: '',
     data_entrega: '',
-    status: '',
+    status: 'Novo',
     projetista: '',
     observacao: '',
     cliente_email: '',
     fileToUpload: null as File | null
   };
 
-  constructor(private requestService: RequestService,  private toastService: ToastService) {}
+  constructor(private requestService: RequestService,  private toastService: ToastService, private userService: UserService ) {
+    this.userService.user$.subscribe(data => {
+      this.userLoggedIsProjetista = data.cargo === 'Projetista'
+    });
+    console.log(this.userLoggedIsProjetista)
+  }
 
+
+  
   onBackButtonClicked() {
     this.projectData = null
     this.isEditMode = false
@@ -82,8 +91,9 @@ export class NewProjectComponent {
           this.projectCreated.emit({ type: this.isEditMode ? 'edit' : 'create'});
         },
         error: (error) => {
+          const isErrorBadRequest = error.status <= 400
           this.isLoading = false
-          this.toastService.showError("Erro ao cadastrar projeto!");
+          this.toastService.showError(isErrorBadRequest ? "Verifique os campos informados" : "Erro ao cadastrar projeto!");
         }
       });
     }else{
