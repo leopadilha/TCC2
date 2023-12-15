@@ -98,7 +98,7 @@ export class NewProjectComponent {
       });
     }else{
       this.isLoading = true
-      this.requestService.editRequest(this.pedido, this.projectData?._id).subscribe({
+      this.requestService.editRequest(formData, this.projectData?._id).subscribe({
         next: (response) => {
           this.isLoading = false
           this.projectCreated.emit({ type: this.isEditMode ? 'edit' : 'create'});
